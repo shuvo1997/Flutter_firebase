@@ -1,5 +1,5 @@
 # Flutter_firebase
-# TODO1: (Runnning)First Create a login and authentication system using firebase
+# TODO1: (Running)First Create a login and authentication system using firebase
 # TODO2: (Done)Create a model in dart
 # TODO3: Populate firebase database using flutter app
 # TODO4: Retrieve datas in the apps
