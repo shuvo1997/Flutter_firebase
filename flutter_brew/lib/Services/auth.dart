@@ -53,7 +53,29 @@ class AuthService {
       }
     }
   }
+
   //sign in using email and password
+  Future signInWithEmailAndPassword(String email, String password) async {
+    try {
+      AuthResult result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
+      switch (e.code) {
+        case 'ERROR_WRONG_PASSWORD':
+          return 'This password is invalid';
+          break;
+        case 'ERROR_INVALID_EMAIL':
+          return 'This email is invalid';
+          break;
+        case 'ERROR_NETWORK_REQUEST_FAILED':
+          return 'Please connect to the internet';
+          break;
+      }
+    }
+  }
 
   //Sign out
   Future signOut() async {
